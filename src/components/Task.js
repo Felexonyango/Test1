@@ -107,7 +107,7 @@ const Task = () => {
                     <StyledTableCell component="th" scope="row">
                       {item.dateofbirth}
                     </StyledTableCell>
-                    <StyledTableCell align="right">
+                    <StyledTableCell component="th" scope="row">
                       {date}
                     </StyledTableCell>
                   </StyledTableRow>
