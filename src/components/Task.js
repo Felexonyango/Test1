@@ -61,18 +61,17 @@ const Task = () => {
   }, []);
   return (
     <div className="App">
-      <h1>Test</h1>
-      <input
-        type="text"
-        placeholder="Search here"
-        onChange={(e) => {
-          setSearch(e.target.value);
-        }}
-      />
-
-  
-
-      <TableContainer component={Paper}>
+      <h1>Search data</h1>
+     <div className="form">
+  <div className='form-group'>
+    <input
+      type='text'
+      placeholder='Search here'
+      name='text'
+      onChange={(e) => {setSearch(e.target.value)}}/>
+  </div>
+  </div>
+   <TableContainer component={Paper}>
         <Table className={classes.table} aria-label="customized table">
           <TableHead>
             <TableRow>

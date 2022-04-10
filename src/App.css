@@ -2,10 +2,7 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
 :root {
   --primary-color: #17a2b8;
-  --dark-color: #343a40;
-  --light-color: #f4f4f4;
-  --danger-color: #dc3545;
-  --success-color: #28a745;
+
 }
 *,
 *::before
@@ -366,6 +363,7 @@ text-align: center;
 .form input[type="date"],
 .form input[type="lname"],
 .form input[type="age"],
+.form input[type="text"],
 
 
 .form select,
