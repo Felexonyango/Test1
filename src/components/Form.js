@@ -3,7 +3,6 @@ import React,{useState} from 'react'
 
 
 
-import Tables from './Table'
 
 const  Form=()=>{
   
