@@ -1,12 +1,6 @@
 
 import React,{useState} from 'react'
-
-
-
-
 const  Form=()=>{
-  
-
   const[age,setAge] = useState("")
   const [fname,setfname] = useState("")
   const [lname,setlname] =useState("")
