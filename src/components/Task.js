@@ -9,6 +9,7 @@ import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
+import { TablePagination } from "@material-ui/core";
 
 const StyledTableCell = withStyles((theme) => ({
   head: {
@@ -38,6 +39,19 @@ const Task = () => {
   const classes = useStyles();
   const [users, setUsers] = useState([]);
   const [search, setSearch] = useState("");
+
+  const [page, setPage] = useState(0);
+  const [rowsPerPage, setRowsPerPage] = useState(5);
+
+
+  const handleChangePage = (event, newPage) => {
+    setPage(newPage);
+  };
+
+  const handleChangeRowsPerPage = (event) => {
+    setRowsPerPage(+event.target.value);
+    setPage(0);
+  };
 
   const current = new Date();
 
@@ -71,6 +85,8 @@ const Task = () => {
       onChange={(e) => {setSearch(e.target.value)}}/>
   </div>
   </div>
+
+  <Paper sx={{ width: '100%' }}>
    <TableContainer component={Paper}>
         <Table className={classes.table} aria-label="customized table">
           <TableHead>
@@ -84,7 +100,10 @@ const Task = () => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {users.filter((item) => {
+            {users
+              .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+            
+            .filter((item) => {
                 if (search == "") {
                   return item;
                 } else if (
@@ -116,6 +135,16 @@ const Task = () => {
           </TableBody>
         </Table>
       </TableContainer>
+      <TablePagination
+        rowsPerPageOptions={[10, 25, 100]}
+        component="div"
+        count={users.length}
+        rowsPerPage={rowsPerPage}
+        page={page}
+        onPageChange={handleChangePage}
+        onRowsPerPageChange={handleChangeRowsPerPage}
+      />
+      </Paper>
     </div>
   );
 };
